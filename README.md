@@ -1,5 +1,5 @@
 # bitcoindcashd
-Bitcoind with SSL support
+Bitcoin Cash node with SSL support
 
 ## Deploy
 
