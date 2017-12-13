@@ -13,9 +13,7 @@ RUN set -ex \
 RUN sed -i 's/^\(\[supervisord\]\)$/\1\nnodaemon=true/' /etc/supervisor/supervisord.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/programs.conf
-
-RUN bash -c 'echo alias bitcoin-cli="bitcoin-cli" >> /etc/profile.d/bitcoin-cash.sh'
-RUN chmod 777 /etc/profile.d/bitcoin-cash.sh
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # install bitcoin binaries
 RUN set -ex \
@@ -23,8 +21,6 @@ RUN set -ex \
 	&& wget -qO bitcoin.tar.gz "$BITCOIN_URL" \
 	&& tar -xzvf bitcoin.tar.gz -C /usr/local --strip-components=1 --exclude=*-qt \
 	&& rm -rf /tmp/*
-
-VOLUME /home/bitcoin
 
 EXPOSE 443
 
