@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ENV BITCOIN_VERSION 0.16.2
+ENV BITCOIN_VERSION 0.17.1
 ENV BITCOIN_URL https://download.bitcoinabc.org/$BITCOIN_VERSION/linux/bitcoin-abc-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz
 
 RUN groupadd -r bitcoin && useradd -r -m -g bitcoin bitcoin
